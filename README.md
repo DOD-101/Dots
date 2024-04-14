@@ -1,4 +1,4 @@
-# David's Dots
+# Dots
 
 ## Preamble
 

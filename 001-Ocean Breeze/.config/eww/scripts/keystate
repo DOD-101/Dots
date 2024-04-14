@@ -1,0 +1,24 @@
+#!/bin/sh
+
+if [ "$1" = "-c" -o "$1" = "--caps-lock" ]; then
+    cat /sys/class/leds/input5::capslock/brightness
+elif [ "$1" = "-n" -o "$1" = "--num-lock" ]; then
+    cat /sys/class/leds/input5::numlock/brightness
+else 
+    echo "Wrong usage:"
+    echo "-c --caps-lock prints capslock state"
+    echo "-n --nums-lock prints numlock state"
+fi
+
+if [ "$2" = "-c" -o "$2" = "--caps-lock" ]; then
+    cat /sys/class/leds/input5::capslock/brightness
+elif [ "$2" = "-n" -o "$2" = "--num-lock" ]; then
+    cat /sys/class/leds/input5::numlock/brightness
+elif [ -z "$2" ]; then 
+    exit
+else 
+    echo "Wrong usage:"
+    echo "-c --caps-lock prints capslock state"
+    echo "-n --nums-lock prints numlock state"
+fi
+

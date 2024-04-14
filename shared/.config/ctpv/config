@@ -1,0 +1,7 @@
+set chafasixel
+
+# Custom preview for image files using chafa with --polite option
+preview image_polite .jpg .jpeg .png .gif .webp {{
+     chafa --polite on "$f" 
+}}
+

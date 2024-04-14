@@ -1,0 +1,27 @@
+#!/bin/sh
+
+current_index=$(eww get time_index)
+
+
+# for more than 2 elements
+# if [ "$1" = "up" ]; then
+#     if [ "$current_index" -eq 2 ]; then
+#         eww update time_index=0
+#     else
+#         eww update time_index=$((current_index + 1))
+#     fi
+# elif [ "$1" = "down" ]; then
+#     if [ "$current_index" -eq 0 ]; then
+#         eww update time_index=2
+#     else
+#         eww update time_index=$((current_index - 1))
+#     fi
+# else
+#     echo "Invalid argument. Use 'up' or 'down'."
+# fi
+
+if [ "$current_index" -eq 1 ]; then
+    eww update time_index=0
+else
+    eww update time_index=1
+fi

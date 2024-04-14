@@ -1,0 +1,33 @@
+; Contains all of the final widgets to be used in windows
+
+(include "widgets.yuck")
+
+(defwidget bar0 [num1 num2 num3]
+  (centerbox :orientation "h"
+    (box
+      :class "left"
+      :orientation "h"
+      :space-evenly false
+      :halign "start"
+      
+      (hwinfo)
+      (workspaces :num1 num1 :num2 num2 :num3 num3)
+    )
+    (box
+      :class "center"
+      :orientation "h"
+      :space-evenly false
+      :halign "center"
+      (time_playing)
+    )
+    (box
+      :class "right"
+      :orientation "h"
+      :space-evenly false
+      :halign "end"
+      
+      (status_info)
+      (volume)
+      (battery)
+    )
+  ))

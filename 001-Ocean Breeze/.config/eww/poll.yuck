@@ -1,0 +1,55 @@
+; contains all polling variables used by the config
+
+(defpoll caps_lock :interval "1s"
+  "bash scripts/keystate -c"
+) ; gets the state of the caps lock
+
+(defpoll num_lock :interval "1s"
+  "bash scripts/keystate -n"
+) ; gets the state of num lock
+
+(defpoll internet :interval "10s"
+  "bash scripts/wifiethernet"
+) ; checks if you are connected via wifi, ethernet or not at all
+
+(defpoll internet_up :interval "60s"
+  :initial 0
+  "speedtest --single --simple --no-download --secure | awk '/Upload:/ {print $2}'"
+) ; gets the current dowload speed
+
+(defpoll internet_down :interval "60s"
+  :initial "0"
+  "speedtest --single --simple --no-upload --secure | awk '/Download:/ {print $2}' "
+) ; gets the current upload speed
+
+(defpoll internet_strengh :interval "10s"
+  :initial 70
+  "iwconfig wlp61s0 | awk -F'[=/]' '/Link Quality/{print $2}'"
+) ; gets the strengh of your internet connection
+
+(defpoll bluetooth :interval "10s"
+  "bash scripts/bluetoothcheck"
+) ; checks if you have a bluetooth device connected
+
+(defpoll playing :initial "Nothing playing rn" :interval "5s"
+  "playerctl metadata --format '{{ title }} - {{ artist }}'"
+) ; gets the currently playing media
+
+(defpoll volume :interval "1s"
+  :initial 50
+  "bash scripts/getvol"
+) ; gets the current volume
+
+(defpoll time :interval "0.5s"
+  "bash scripts/timedate"
+) ; contains either the current time or date depending on the state of the "timedate" var
+
+(defpoll active_workspace :interval "0.5s"
+  "bash scripts/workspace"
+) ; gets the current active workspace
+
+(defpoll mem_usage :interval "3s"
+  "bash scripts/mem"
+) ; contains a string formated as
+; "(total mem in GB)GB / (used mem in GB)GB"
+

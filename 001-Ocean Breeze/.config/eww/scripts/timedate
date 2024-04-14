@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ $(eww get timedate) == "time" ]; then
+    echo $(date +"%T")
+else
+    echo $(date +"%d.%m.%Y")
+fi

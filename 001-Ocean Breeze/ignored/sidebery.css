@@ -1,0 +1,20 @@
+#root.root {--tabs-activated-shadow: 0 1px 4px -1px rgba(0,0,0,0.282), inset 0 0 0 1px rgb(248, 112, 152);}
+#root.root {--tabs-activated-fg: #feb301ff;}
+
+
+#root.root {--toolbar-fg: #feb301ff;}
+#root.root {--frame-el-overlay-selected-border: #e5a50a;}
+
+
+#root.root {--search-height: 25px;}
+
+#root.root {--tabs-normal-fg: #cd3e32bf;}
+#root.root {--tabs-margin: 5px;}
+#root.root {--tabs-height: 20px;}
+.Tab[data-discarded=true]>.body>.fav {
+ opacity:1
+}
+.Tab[data-discarded=true]>.body>.t-box,
+.Tab[data-discarded=true]>.body>.ctx {
+ opacity:1
+}

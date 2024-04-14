@@ -1,0 +1,8 @@
+; contains all the variales of the config
+
+;  vars for controlling revealers
+(defvar show_status false)
+(defvar show_hwinfo false)
+; vars relating to the time and time_playing widgets
+(defvar timedate "time") ; if to show the time or the date
+(defvar time_index 0) ; index of the stack element

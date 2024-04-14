@@ -1,0 +1,18 @@
+visualizer.fps=30
+colors.scheme=ocean
+#Available smoothing options are monstercat, sgs, none.
+visualizer.spectrum.smoothing.mode=sgs
+visualizer.spectrum.smoothing.factor=2
+visualizer.spectrum.bar.width=1
+visualizer.spectrum.bar.spacing=1
+visualizer.scaling.multiplier=0.5
+
+#Configures how fast the falloff character falls. This is an exponential falloff so values usually look
+#best 0.9+ and small changes in this value can have a large effect. Defaults to 0.95
+visualizer.spectrum.falloff.weight=0.98
+
+#Configures the samples rate and the cutoff frequencies.
+audio.sampling.frequency=44100
+audio.low.cutoff.frequency=60
+audio.high.cutoff.frequency=22050
+

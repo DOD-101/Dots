@@ -1,0 +1,1 @@
+hyprland eww fastfetch fontconfig foot lf-git neovim spotify-player cli-visualizer wofi ctpv-git playerctl bluez oh-my-zsh-git speedtest-cli ttf-firacode-nerd

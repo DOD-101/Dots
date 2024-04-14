@@ -1,0 +1,244 @@
+(include "poll.yuck")
+(include "vars.yuck")
+
+(defwidget icon-module [icon ?class ?visible]
+  (box :class "${class} icon-module"
+    :orientation "h"
+    :halign "end"
+    :space-evenly false
+    :visible {visible ?: true} ; because the argument is optional
+    (children)
+    (label :class "icon-module__icon" :text "${icon}")
+  )
+)
+
+(defwidget cpu []
+  (icon-module :class "cpu_icon" :icon "󰻠"
+    (label :text "${round(EWW_CPU.avg, 0)}%" :class "cpu_value" :yalign 0.5)
+  )
+)
+
+(defwidget ram []
+  (icon-module :class "ram_icon" :icon ""
+    (label :text "${round(EWW_RAM.used_mem_perc, 0)}%" :class "ram_value" :yalign 0.5)
+  )
+)
+
+(defwidget disk []
+  (icon-module :class "disk_icon" :icon "󰋊"
+    (label :text "${round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}%" :class "disk_value")
+  )
+)
+
+(defwidget ddisk []
+  (icon-module :class "ddisk_icon" :icon "󰋊"
+    (label :text "${round((1 - (EWW_DISK["/data"].free / EWW_DISK["/data"].total)) * 100, 0)}%" :class "ddisk_value")
+  )
+)
+
+(defwidget time []
+  (button
+    :class "time"
+    :halign "end"
+    :onclick {
+    timedate == "date" ?
+    "eww update timedate=time && eww update time=$(bash scripts/timedate)" :
+    "eww update timedate=date && eww update time=$(bash scripts/timedate)"
+    }
+  time)
+)
+
+(defwidget playing []
+  (eventbox
+    :onclick "foot -e spotify_player & disown"
+    (label :text {playing})
+  )
+)
+
+(defwidget time_playing []
+  (eventbox
+    :onscroll "bash scripts/timeplaying {}"
+    (stack
+      :selected {time_index}
+      :transition "slideup"
+      :same-size false
+      (time)
+      (playing)
+    )
+  )
+)
+
+(defwidget volume []
+  (eventbox
+    :onscroll "
+    if [ {} == \"up\" ]; then wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 1%+;
+    else wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 1%-; fi
+    && eww update volume=$(scripts/getvol)"
+    :onclick "pavucontrol & disown"
+    (icon-module
+      :class "volume_icon"
+      :icon {
+      volume >= 70 ?
+      "" :
+      volume >= 30 ?
+      "" :
+      volume == 0  ?
+      "󰝟" :
+      ""
+      }
+      (label :text "${volume}%" :class "volume_value")
+    )
+  )
+)
+
+(defwidget battery []
+  (icon-module
+    :class { EWW_BATTERY["BAT0"].capacity <= 25 ? "battery bat_low" : "battery" }
+    :icon {
+    EWW_BATTERY["BAT0"].status == "Charging" ?
+    "" :
+    EWW_BATTERY["BAT0"].capacity == 100 ?
+    "" :
+    EWW_BATTERY["BAT0"].capacity >= 75 ?
+    "" :
+    EWW_BATTERY["BAT0"].capacity >= 50 ?
+    "" :
+    EWW_BATTERY["BAT0"].capacity >= 25 ?
+    "" :
+    ""}
+    (label :text "${EWW_BATTERY["BAT0"].capacity}%")
+  )
+)
+
+(defwidget status_info []
+  (eventbox
+    :onhover "eww update show_status=true"
+    :onhoverlost "eww update show_status=false"
+    (box
+      :class "status"
+      :space-evenly false
+      
+      (label
+        :class {
+        internet == "none" ?
+        "internet internet_off off" :
+        "internet internet_on on"
+        }
+        :text {
+        internet == "none" ?
+        "󰤭" :
+        internet == "ethernet" ?
+        "󰈁" :
+        internet_strengh < 17.5 ?
+        "󰤟" :
+        internet_strengh < 35 ?
+        "󰤢" :
+        internet_strengh < 52.5 ?
+        "󰤥" :
+        "󰤨"
+        }
+      )
+      (revealer
+        :class "internet_revealer"
+        :transition "slideleft"
+        :reveal {show_status}
+        (box
+          :halign "end"
+          :space-evenly false
+          
+          (label :text {"${round(internet_down, 0)}/"} :yalign 0) ; "
+          (label :text {"${round(internet_up, 0)}"}) ; " here to fix issues with the vscode extention for yuck
+          (label :text "(Mbit/s)" :class "internet_units")
+        )
+      )
+      (label
+        :class {
+        bluetooth == 1 ?
+        "bluetooth bluetooth_on on" :
+        "bluetooth bluetooth_off off"
+        }
+      :text "")
+      (label
+        :class {
+        caps_lock == 1 ?
+        "caps caps_on on" :
+        "caps caps_off off"
+        }
+      :text "󰘲")
+      (label
+        :class {
+        num_lock == 1 ?
+        "num num_on on" :
+        "num num_off off"
+        }
+      :text "󰎡")
+    )
+  )
+)
+
+(defwidget workspaces [num1 num2 num3]
+  (box
+    :class "WS-Widget"
+    :orientation "h"
+    :space-evenly true
+    :halign "start"
+    :spacing 10
+    (button
+      :onclick "hyprctl dispatch workspace ${num1}"
+      :class {
+      active_workspace == num1 ?
+      "activeWS WS" :
+      "WS"
+      }
+      num1
+    )
+    (button
+      :onclick "hyprctl dispatch workspace ${num2}"
+      :class {
+      active_workspace == num2 ?
+      "activeWS WS" :
+      "WS"
+      }
+      num2
+    )
+    (button
+      :onclick "hyprctl dispatch workspace ${num3}"
+      :class {
+      active_workspace == num3 ?
+      "activeWS WS" :
+      "WS"
+      }
+      num3
+    )
+  )
+)
+
+(defwidget hwinfo []
+  (eventbox
+    :onhover "eww update show_hwinfo=true"
+    :onhoverlost "eww update show_hwinfo=false"
+    :onclick "foot -e btop & disown"
+    (box
+      :class "hwinfo"
+      :space-evenly false
+      (cpu)
+      (revealer
+        :transition "slideright"
+        :reveal {show_hwinfo}
+        (label :text "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0} °C")
+      )
+      (ram)
+      (revealer
+        :transition "slideright"
+        :reveal {show_hwinfo}
+        (label :text mem_usage)
+      )
+      (box
+        :space-evenly false
+        (disk)
+        (ddisk)
+      )
+      
+    )
+  )
+)

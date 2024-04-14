@@ -1,0 +1,73 @@
+; contains all of the windows
+
+(include "final_widgets.yuck")
+
+(defwindow BarWin0
+  :monitor 3
+  :stacking 'bg'
+  :exclusive true
+  :focusable false
+  :geometry (geometry
+    :x "0px"
+    :y "5px"
+    :width "99%"
+    :height "10px"
+  :anchor "top center")
+  (bar0 :num1 1 :num2 2 :num3 3)
+)
+
+(defwindow BarWin1
+  :monitor 0
+  :stacking 'bg'
+  :exclusive true
+  :focusable false
+  :geometry (geometry
+    :x "0px"
+    :y "5px"
+    :width "99%"
+    :height "10px"
+  :anchor "top center")
+  (bar0 :num1 4 :num2 5 :num3 6)
+)
+
+(defwindow BarWin2
+  :monitor 2
+  :stacking 'bg'
+  :exclusive true
+  :focusable false
+  :geometry (geometry
+    :x "0px"
+    :y "5px"
+    :width "99%"
+    :height "10px"
+  :anchor "top center")
+  (bar0 :num1 7 :num2 8 :num3 9)
+)
+
+(defwindow BarWin3
+  :monitor 1
+  :stacking 'bg'
+  :exclusive true
+  :focusable false
+  :geometry (geometry
+    :x "0px"
+    :y "5px"
+    :width "99%"
+    :height "10px"
+  :anchor "top center")
+  (bar0 :num1 10 :num2 11 :num3 12)
+)
+
+(defwindow SingleBarWin0
+  :monitor 0
+  :stacking 'bg'
+  :exclusive true
+  :focusable false
+  :geometry (geometry
+    :x "0px"
+    :y "5px"
+    :width "99%"
+    :height "10px"
+  :anchor "top center")
+  (bar0 :num1 1 :num2 2 :num3 3)
+)

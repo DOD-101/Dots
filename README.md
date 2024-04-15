@@ -13,8 +13,8 @@ See the 'packages.txt' located in the directory for that config. The package nam
 ***There is a good chance this is still missing some. Please make me aware of any you come across via an Issue.***
 
 ## Usage
-1. Download all necessary packages.
-2. Determine which color theme you prefer (I highly recommend blue)
+1. Download all necessary packages & GNU Stow.
+2. Determine which color theme you prefer (only have one choice rn)
 3. Run ```stow -t ~ -S .``` in the appropriate directory. To undo this again run ```stow -t ~ -D .```
 4. (optional/recommended) Run the above command again in the shared dir, if you wish to include those in your config as well.
 5. (optional/strongly recommended) Make any changes you desire.
@@ -30,4 +30,4 @@ See the 'packages.txt' located in the directory for that config. The package nam
 <img alt="showcase image" src="./001-Ocean Breeze/ignored/screenshots/004.png"/>
 
 Had to sadly use the default Hyprland wallpaper because I can't use any [album covers](https://github.com/DOD-101/WallTune)
-in the screenshots. Yay copyright!
+in the screenshots. Yay copyright law!

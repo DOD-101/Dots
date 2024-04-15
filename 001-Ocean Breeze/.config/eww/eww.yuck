@@ -4,7 +4,7 @@
 
 (defwindow BarWin0
   :monitor 3
-  :stacking 'bg'
+  :stacking 'bottom'
   :exclusive true
   :focusable false
   :geometry (geometry
@@ -18,7 +18,7 @@
 
 (defwindow BarWin1
   :monitor 0
-  :stacking 'bg'
+  :stacking 'bottom'
   :exclusive true
   :focusable false
   :geometry (geometry
@@ -32,7 +32,7 @@
 
 (defwindow BarWin2
   :monitor 2
-  :stacking 'bg'
+  :stacking 'bottom'
   :exclusive true
   :focusable false
   :geometry (geometry
@@ -46,7 +46,7 @@
 
 (defwindow BarWin3
   :monitor 1
-  :stacking 'bg'
+  :stacking 'bottom'
   :exclusive true
   :focusable false
   :geometry (geometry
@@ -60,7 +60,7 @@
 
 (defwindow SingleBarWin0
   :monitor 0
-  :stacking 'bg'
+  :stacking 'bottom'
   :exclusive true
   :focusable false
   :geometry (geometry

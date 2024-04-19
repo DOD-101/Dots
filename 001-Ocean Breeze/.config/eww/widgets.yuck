@@ -118,6 +118,17 @@
       :class "status"
       :space-evenly false
       
+      (revealer
+        :class "internet_revealer"
+        :transition "slideleft"
+        :reveal {show_status}
+        (box
+          :halign "end"
+          :space-evenly false
+          (label :text {internet_name} :class "internet_name")
+        )
+      )
+
       (label
         :class {
         internet == "none" ?
@@ -138,19 +149,7 @@
         "󰤨"
         }
       )
-      (revealer
-        :class "internet_revealer"
-        :transition "slideleft"
-        :reveal {show_status}
-        (box
-          :halign "end"
-          :space-evenly false
-          
-          (label :text {"${round(internet_down, 0)}/"} :yalign 0) ; "
-          (label :text {"${round(internet_up, 0)}"}) ; " here to fix issues with the vscode extention for yuck
-          (label :text "(Mbit/s)" :class "internet_units")
-        )
-      )
+
       (label
         :class {
         bluetooth == 1 ?

@@ -12,15 +12,9 @@
   "bash scripts/wifiethernet"
 ) ; checks if you are connected via wifi, ethernet or not at all
 
-(defpoll internet_up :interval "60s"
-  :initial 0
-  "speedtest --single --simple --no-download --secure | awk '/Upload:/ {print $2}'"
-) ; gets the current dowload speed
-
-(defpoll internet_down :interval "60s"
-  :initial "0"
-  "speedtest --single --simple --no-upload --secure | awk '/Download:/ {print $2}' "
-) ; gets the current upload speed
+(defpoll internet_name :interval "10s"
+    "iwconfig wlp61s0 | awk -F'[:\"]' '/ESSID/{print $3}'"
+) ; gets the ESSID (name) of your current internet connection
 
 (defpoll internet_strengh :interval "10s"
   :initial 70

@@ -26,6 +26,7 @@ source ~/.oh-my-zsh/oh-my-zsh.sh
 
 # -- end -- 
 
+setopt globdots
 
 eval "$(atuin init zsh)"
 eval "$(dircolors ~/.dircolors)"
@@ -34,6 +35,7 @@ if [[ "$(tty)" == "/dev/tty1" ]]; then
   fastfetch
   spotify_player -d
 fi
+
 export XCURSOR_THEME=Catppuccin-Macchiato-Dark
 export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
 export EDITOR="nvim"

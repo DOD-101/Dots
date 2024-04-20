@@ -1,0 +1,35 @@
+theme = "dracula"
+client_id = "fb9c6f0fd604439e8a6ac868290354c3"
+client_port = 8080
+playback_format = """
+{track} • {artists}
+{album}
+{metadata}"""
+tracks_playback_limit = 50
+app_refresh_duration_in_ms = 32
+playback_refresh_duration_in_ms = 0
+page_size_in_rows = 20
+play_icon = "▶"
+pause_icon = "▌▌"
+liked_icon = "♥"
+border_type = "Plain"
+progress_bar_type = "Rectangle"
+playback_window_position = "Top"
+playback_window_width = 6
+enable_media_control = true
+enable_streaming = "Always"
+enable_cover_image_cache = true
+default_device = "arch101-0-deamon"
+cover_img_scale = 2.2
+
+[copy_command]
+command = "wl-copy"
+args = []
+
+[device]
+name = "arch101-0-deamon"
+device_type = "speaker"
+volume = 70
+bitrate = 320
+audio_cache = true
+normalization = false

@@ -30,4 +30,4 @@ See the 'packages.txt' located in the directory for that config. The package nam
 <img alt="showcase image" src="./001-Ocean Breeze/ignored/screenshots/004.png"/>
 
 Had to sadly use the default Hyprland wallpaper because I can't use any [album covers](https://github.com/DOD-101/WallTune)
-in the screenshots. Yay copyright law!
+in the screenshots.

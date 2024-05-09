@@ -70,6 +70,10 @@
             "format": "{1} {2}"
         },
         {
+            "type": "packages",
+            "key": "  󰏖"
+        }, 
+        {
             "type": "wm",
             "key": "  "
         },
@@ -92,10 +96,6 @@
         {
             "type": "icons",
             "key": "  󰀻"
-        },
-        {
-            "type": "packages",
-            "key": "  󰏖"
         },
         {
             "type": "uptime",

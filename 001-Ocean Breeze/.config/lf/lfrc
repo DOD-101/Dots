@@ -49,7 +49,7 @@ push m-
 map Q push '-q
 
 # return to home
-map h cd
+map H cd
 
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to

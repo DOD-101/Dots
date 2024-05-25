@@ -2,7 +2,7 @@
 
 (include "widgets.yuck")
 
-(defwidget bar0 [num1 num2 num3]
+(defwidget bar0 [num1 num2 num3 playing_monitor]
   (centerbox :orientation "h"
     (box
       :class "left"
@@ -18,7 +18,7 @@
       :orientation "h"
       :space-evenly false
       :halign "center"
-      (time_playing)
+      (time_playing :playing_monitor playing_monitor)
     )
     (box
       :class "right"
@@ -31,3 +31,38 @@
       (battery)
     )
   ))
+
+(defwidget music_player []
+  (eventbox
+    :onhoverlost "eww close playing_window"
+    (box
+      :space-evenly false
+      :orientation "v"
+      (box
+        :class "playing_img_box"
+        :space-evenly false
+        (eventbox
+          :onclick "foot -e spotify_player & disown"
+          (image
+            :class "playing_img"
+            :path playing_img
+            :image-width "70"
+            :image-height "70"
+            :width "70"
+          )
+        )
+        (label :text playing_artist :wrap true :height "30" :show-truncated false :width "10" :class "playing_artist" )
+      )
+      (label :class "playing_title":text playing_title)
+      (scale
+        :height "20"
+        :class "playing_progress"
+        :value playing_pos
+        :max playing_final_pos
+        :min 0
+        :onchange "playerctl position $(expr {} / 1000000 )"
+      )
+      (player_controls)
+    )
+  )
+)

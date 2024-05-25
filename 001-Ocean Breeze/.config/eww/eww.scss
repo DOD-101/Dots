@@ -2,16 +2,22 @@
   all: unset; //Unsets everything so you can style everything from scratch
 }
 
+$background-color: #272c44;
+$color: #df5a4e;
+$color-blue: #77a1df;
+$color-yellow: #feb301;
+
 //Global Styles
 .BarWin0,
 .BarWin1,
 .BarWin2,
 .BarWin3,
-.SingleBarWin0 {
+.SingleBarWin0,
+.playing_window {
   font-family: FiraCode Nerd Font Mono;
   font-size: medium;
-  background-color: #272c44;
-  color: #df5a4e;
+  background-color: $background-color;
+  color: $color;
   padding: 5px;
   border-radius: 7px;
 }
@@ -42,7 +48,7 @@
 
 .icon-module__icon,
 .off {
-  color: #77a1df;
+  color: $color-blue;
 }
 
 .icon-module__icon {
@@ -53,7 +59,7 @@
 revealer {
   padding-left: 5px;
   padding-right: 5px;
-  color: #feb301;
+  color: $color-yellow;
 }
 
 .on {
@@ -86,5 +92,47 @@ revealer {
 }
 
 .bat_low {
-    color: red;
+  color: red;
+}
+
+.playing_img_box {
+  padding: 5px;
+}
+
+.playing_progress trough {
+  background-color: $color-blue;
+  border-radius: 50px;
+  min-height: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.playing_progress trough highlight {
+  background-color: $color;
+  color: #000000;
+  border-radius: 10px;
+}
+
+.playing_artist {
+  padding-left: 5px;
+}
+
+.playing_title {
+  font-size: small;
+  padding: 2px;
+  padding-left: 5px;
+}
+
+.playing_img {
+  padding: 0;
+  margin: 0;
+}
+
+.playing_controls * {
+  transition: 0.3s;
+  padding-bottom: 3px;
+}
+
+.playing_controls *:hover {
+  color: $color-yellow;
 }

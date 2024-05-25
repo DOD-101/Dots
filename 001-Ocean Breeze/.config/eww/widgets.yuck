@@ -55,16 +55,11 @@
   )
 )
 
-(defwidget time_playing []
+(defwidget time_playing [playing_monitor]
   (eventbox
-    :onscroll "bash scripts/timeplaying {}"
-    (stack
-      :selected {time_index}
-      :transition "slideup"
-      :same-size false
-      (time)
-      (playing)
-    )
+    :onclick "eww update spot=true"
+    :onhover "eww open playing_window --arg monitor=${playing_monitor}"
+    (time)
   )
 )
 
@@ -79,7 +74,7 @@
       :class "volume_icon"
       :icon {
       bluetooth == 1 ?
-      "󰂰" : 
+      "󰂰" :
       volume >= 70 ?
       "" :
       volume >= 30 ?
@@ -130,7 +125,7 @@
           (label :text {internet_name} :class "internet_name")
         )
       )
-
+      
       (label
         :class {
         internet == "none" ?
@@ -151,7 +146,7 @@
         "󰤨"
         }
       )
-
+      
       (label
         :class {
         bluetooth == 1 ?
@@ -242,4 +237,41 @@
       
     )
   )
+)
+
+(defwidget player_controls []
+  (box
+    :class "playing_controls"
+    :space-evenly false
+    (box
+      :width "180"
+      (button
+        :class "prev"
+        :onclick "playerctl previous"
+        "󰒮"
+      )
+      (button
+        :class "pause"
+        :onclick "playerctl play-pause"
+        { playing_state == "Paused" ?  "󰏤" : "󰐊" }
+        
+      )
+      (button
+        :class "next"
+        :onclick "playerctl next"
+        "󰒭"
+      )
+    )
+    (button
+      :class "volume_up"
+      :onclick "playerctl"
+    )
+    
+    (button
+      :width "5"
+      :onclick "spotify_player like &"
+      ""
+    )
+  )
+  
 )

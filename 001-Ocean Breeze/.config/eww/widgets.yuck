@@ -73,7 +73,7 @@
     (icon-module
       :class "volume_icon"
       :icon {
-      bluetooth == 1 ?
+      bluetooth != "" ?
       "󰂰" :
       volume >= 70 ?
       "" :
@@ -149,7 +149,7 @@
       
       (label
         :class {
-        bluetooth == 1 ?
+        bluetooth != "" ?
         "bluetooth bluetooth_on on" :
         "bluetooth bluetooth_off off"
         }

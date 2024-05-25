@@ -22,7 +22,7 @@
 ) ; gets the strengh of your internet connection
 
 (defpoll bluetooth :interval "10s"
-  "bash scripts/bluetoothcheck"
+  "bluetoothctl devices Connected"
 ) ; checks if you have a bluetooth device connected
 
 (defpoll playing :initial "Nothing playing rn" :interval "5s"

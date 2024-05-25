@@ -37,15 +37,10 @@
 )
 
 (defwidget time []
-  (button
+  (label
     :class "time"
-    :halign "end"
-    :onclick {
-    timedate == "date" ?
-    "eww update timedate=time && eww update time=$(bash scripts/timedate)" :
-    "eww update timedate=date && eww update time=$(bash scripts/timedate)"
-    }
-  time)
+    :text time
+  )
 )
 
 (defwidget playing []

@@ -35,7 +35,7 @@
 ) ; gets the current volume
 
 (defpoll time :interval "0.5s"
-  "bash scripts/timedate"
+  "date +'%T | %Y-%m-%d'"
 ) ; contains either the current time or date depending on the state of the "timedate" var
 
 (defpoll active_workspace :interval "0.5s"

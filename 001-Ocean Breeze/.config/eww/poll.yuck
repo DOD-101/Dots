@@ -36,7 +36,7 @@
 
 (defpoll time :interval "0.5s"
   "date +'%T | %Y-%m-%d'"
-) ; contains either the current time or date depending on the state of the "timedate" var
+) ; contains the current time and date
 
 (defpoll active_workspace :interval "0.5s"
   "bash scripts/workspace"

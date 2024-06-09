@@ -51,14 +51,29 @@ map Q push '-q
 # return to home
 map H cd
 
+# open image with swayimg
+cmd imgv &{{
+    swayimg $f
+}}
+
+map I imgv
+
+cmd jj ${{
+    printf "Location:" 
+    read loc
+
+    lf -remote "send $id cd \"$(jump cd \"$loc\")\""
+}}
+
+map J jj
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
 # use either file extensions and/or mime types here. Below uses an editor for
 # text files and a file opener for the rest.
 cmd open &{{
     case $(file --mime-type -Lb $f) in
-        text/*) lf -remote "send $id \$$EDITOR \$fx";;
-        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+        image/*) xdg-open "$fx";;
+        *) lf -remote "send $id \$$EDITOR \$fx";;
     esac
 }}
 
@@ -80,9 +95,9 @@ cmd trash %set -f; mv $fx ~/.trash
 cmd delete ${{
     set -f
     printf "$fx\n"
-    printf "delete?[y/n]"
+    printf "trash?[y/n]"
     read ans
-    [ "$ans" = "y" ] && rm -rf $fx
+    [ "$ans" = "y" ] && gtrash put -rf $fx
 }}
 
 # use '<delete>' key for either 'trash' or 'delete' command

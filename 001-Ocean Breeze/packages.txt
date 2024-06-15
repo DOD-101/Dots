@@ -1,1 +1,1 @@
-hyprland eww fastfetch fontconfig foot lf neovim spotify-player cli-visualizer wofi ctpv playerctl bluez oh-my-zsh-git speedtest-cli ttf-firacode-nerd cliphist mpv jump swayimg
+hyprland eww fastfetch fontconfig foot lf neovim spotify-player cli-visualizer wofi ctpv playerctl bluez oh-my-zsh-git speedtest-cli ttf-firacode-nerd cliphist mpv jump swayimg hyprlock

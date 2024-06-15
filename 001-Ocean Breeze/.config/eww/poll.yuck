@@ -1,15 +1,15 @@
 ; contains all polling variables used by the config
 
 (defpoll caps_lock :interval "1s"
-  "bash scripts/keystate -c"
+  "bash scripts/keystate.sh -c"
 ) ; gets the state of the caps lock
 
 (defpoll num_lock :interval "1s"
-  "bash scripts/keystate -n"
+  "bash scripts/keystate.sh -n"
 ) ; gets the state of num lock
 
 (defpoll internet :interval "10s"
-  "bash scripts/wifiethernet"
+  "bash scripts/wifiethernet.sh"
 ) ; checks if you are connected via wifi, ethernet or not at all
 
 (defpoll internet_name :interval "10s"
@@ -31,7 +31,7 @@
 
 (defpoll volume :interval "1s"
   :initial 50
-  "bash scripts/getvol"
+  "bash scripts/getvol.sh"
 ) ; gets the current volume
 
 (defpoll time :interval "0.5s"
@@ -39,11 +39,11 @@
 ) ; contains the current time and date
 
 (defpoll active_workspace :interval "0.5s"
-  "bash scripts/workspace"
+  "bash scripts/workspace.sh"
 ) ; gets the current active workspace
 
 (defpoll mem_usage :interval "3s"
-  "bash scripts/mem"
+  "bash scripts/mem.sh"
 ) ; contains a string formated as
 ; "(total mem in GB)GB / (used mem in GB)GB"
 
@@ -52,7 +52,7 @@
 )
 
 (defpoll playing_img :interval "1s"
-  "bash scripts/playingimg"
+  "bash scripts/playingimg.sh"
 ) ; gets the img of the currently playing media and saves it returning the path
 ; this path always stays the same
 

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Search
+GenericName=Web Search
+Comment=Search the web with floorp
+Exec=bash /home/david/.config/wofi/wofi-search.sh
+Icon=/home/david/.dotfiles/001-Ocean Breeze/ignored/search-logo.png
+Keywords=Music;Spotify;player
+Categories=Music
+Terminal=false
+Type=Application

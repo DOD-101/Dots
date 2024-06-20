@@ -46,11 +46,12 @@ export EDITOR="nvim"
 export SDL_VIDEODRIVER=wayland
 
 export PATH=$PATH:~/.bin/ 
+export XDG_DATA_DIRS=/home/david/.local/share/applications/:$XDG_DATA_DIRS
 export GTRASH_HOME_TRASH_DIR="$HOME/.local/share/Trash"
 export GTRASH_ONLY_HOME_TRASH="true"
 
 alias rt="gtrash put"
-alias l="ls -vAl --group-directories-first"
+alias l="ls -vAlh --group-directories-first"
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias code="code . & disown"
@@ -62,6 +63,7 @@ alias pyvenv="python -m venv .venv"
 alias stowh="stow -t ~ -S ."
 alias stowu="stow -t ~ -D ."
 
+alias n="nvim"
 # mkcd
 
 mkcd () {

@@ -1,0 +1,7 @@
+[[manager.append_keymap]]
+on = [ "b" ]
+run = "cd ~"
+
+[[manager.prepend_keymap]]
+on = [ "<C-q>"]
+run = "quit --no-cwd-file"

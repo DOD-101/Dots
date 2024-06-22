@@ -1,0 +1,7 @@
+[manager]
+ratio = [1, 4, 3]
+sort_by = "natural"
+sort_sensitive = false
+sort_dirs_first = true
+sort_translit = true
+show_hidden = true

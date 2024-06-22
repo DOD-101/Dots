@@ -79,19 +79,12 @@ prompt_end() {
   else
     echo -n "%{%k%}"
   fi
-  echo -n "%{%f%}"
+  echo -n "%F{yellow}\n󰅂%{%f%}"
   CURRENT_BG=''
 }
 
 ### Prompt components
 # Each component will draw itself, and hide itself if no information needs to be shown
-
-# Context: user@hostname (who am I and where am I)
-prompt_context() {
-  if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment white default "%(!.%{%F{yellow}%}.)%n@%m"
-  fi
-}
 
 # Git: branch/detached head, dirty status
 prompt_git() {
@@ -113,7 +106,7 @@ prompt_git() {
     ref="◈ $(git describe --exact-match --tags HEAD 2> /dev/null)" || \
     ref="➦ $(git rev-parse --short HEAD 2> /dev/null)"
     if [[ -n $dirty ]]; then
-      prompt_segment yellow black
+      prompt_segment white black
     else
       prompt_segment green $CURRENT_FG
     fi
@@ -265,7 +258,6 @@ build_prompt() {
   prompt_status
   prompt_virtualenv
   prompt_aws
-  prompt_context
   prompt_dir
   prompt_git
   prompt_bzr

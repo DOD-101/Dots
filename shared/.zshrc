@@ -42,7 +42,7 @@ fi
 
 export XCURSOR_THEME=Catppuccin-Macchiato-Dark
 export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
-export NVIM_APPNAME=nvim/nvim-testing
+export NVIM_APPNAME=nvim/janc
 export TERM="foot"
 export EDITOR="nvim"
 export SDL_VIDEODRIVER=wayland
@@ -55,11 +55,15 @@ export GTRASH_ONLY_HOME_TRASH="true"
 alias rt="gtrash put"
 alias l="ls -vAlh --group-directories-first"
 alias cf='T="$(find . -type f | fzf)" ; if [[ -f "$T" ]] ; then T="$(dirname "$T")" ; fi ; cd "$T"'
+
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias code="code . & disown"
+
+alias remove-orphans='sudo pacman -Rns $(pacman -Qtdq | grep -v "debug")'
+
 alias tzuc="timedatectl set-timezone \$(tzupdate -p)" # TimeZoneUpdateComplete
 alias sp="spotify_player"
+
 alias pyserver="python -m http.server"
 alias pyvenv="python -m venv .venv"
 

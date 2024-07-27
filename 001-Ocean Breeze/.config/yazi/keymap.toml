@@ -5,3 +5,7 @@ run = "cd ~"
 [[manager.prepend_keymap]]
 on = [ "<C-q>"]
 run = "quit --no-cwd-file"
+
+[[manager.prepend_keymap]]
+on = [ "I" ]
+run = "shell --confirm --orphan swayimg $1"

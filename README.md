@@ -18,7 +18,7 @@ See the 'packages.txt' located in the directory for that config. The package nam
 3. Run ```stow -t ~ -S .``` in the appropriate directory. To undo this again run ```stow -t ~ -D .```
 4. (optional/recommended) Run the above command again in the shared dir, if you wish to include those in your config as well.
 5. (optional/strongly recommended) Make any changes you desire.
-6. Have a look inside the ```ignored/``` directory for any other files you might want.
+6. Have a look inside the ```ignored/``` directory for any other files you might want / need.
 
 ## Showcase
 

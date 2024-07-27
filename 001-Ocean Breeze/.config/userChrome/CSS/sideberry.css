@@ -1,0 +1,23 @@
+@-moz-document regexp("moz-extension://.*?/sidebar/sidebar.html")
+{
+  #root.root {
+    --tabs-normal-fg: #cd3e32bf !important;
+    --tabs-activated-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.282),
+      inset 0 0 0 1px rgb(248, 112, 152) !important;
+    --toolbar-fg: #feb301ff !important;
+    --nav-btn-fg: #feb301ff !important;
+    --toolbar-bg: #272c44 !important;
+    --frame-bg: #272c44 !important;
+    --tabs-activated-fg: #feb301ff !important;
+    --frame-el-overlay-selected-border: #e5a50a !important;
+    --search-height: 25px !important;
+    --tabs-margin: 5px !important;
+    --tabs-height: 20px !important;
+  }
+
+  .Tab[data-discarded="true"] > .body > .fav,
+  .Tab[data-discarded="true"] > .body > .t-box,
+  .Tab[data-discarded="true"] > .body > .ctx {
+    opacity: 1 !important;
+  }
+}

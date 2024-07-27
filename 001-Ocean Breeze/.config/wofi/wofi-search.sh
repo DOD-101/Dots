@@ -11,9 +11,9 @@ if [[ "$term" == *"."* ]]; then
     echo "$tld"
 
     if [[ -n "$(cat "$TLD_PATH" | grep -i -w $tld)" ]]; then
-        floorp --new-tab "$term"
+        firefox --new-tab "$term"
         exit
     fi
 fi
 
-floorp --new-tab https://search.brave.com/search?q="$term"
+firefox --new-tab https://search.brave.com/search?q="$term"

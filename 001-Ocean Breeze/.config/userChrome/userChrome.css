@@ -1,0 +1,91 @@
+/*
+
+**************************************
+#TabsToolbar {                       *
+    display: none !important;        *
+}                                    *
+**************************************
+
+Quote: https://userChrome.org | https://github.com/topics/userchrome 
+
+*/
+@import url("CSS/toolbar.css");
+
+@charset "UTF-8";
+@-moz-document url(chrome://browser/content/browser.xhtml)
+{
+  /* Please write your custom CSS under this line*/
+  :root {
+    /* Sidebar buttons */
+    --toolbar-color: #3073d9 !important;
+    /* Toolbar buttons */
+    --toolbarbutton-icon-fill: #3073d9 !important;
+    /* Toolbar / sidebar background color */
+    --toolbar-bgcolor: #272c44 !important;
+    /* Searchbar */
+    --toolbar-field-background-color: #1b1e36 !important;
+    --toolbar-field-focus-background-color: #1b1e36 !important;
+    /* Searchbar text color */
+    --toolbar-field-color: #df5a4e !important;
+    --toolbar-field-focus-color: #df5a4e !important;
+  }
+
+  #sidebar-header,
+  #sidebar-button {
+    display: none;
+  }
+
+  #TabsToolbar {
+    display: none !important;
+  }
+
+  .browserStack {
+    background-color: #272c44 !important;
+  }
+
+  .browserStack browser {
+    border: 5px solid #272c44;
+    border-radius: 15px;
+  }
+
+  #browser {
+    background-color: #272c44 !important;
+  }
+
+  #navigator-toolbox {
+    background-color: #272c44 !important;
+    border: none !important;
+  }
+
+  #PersonalToolbar {
+    height: 200px !important;
+  }
+
+  #sidebar-splitter {
+    background-color: #272c44 !important;
+    border: none !important;
+  }
+}
+
+#sidebar-search-container,
+#search-box,
+#bookmarks-view-children,
+#historyTree,
+#bookmarksPanel {
+  color: #df5a4e !important;
+  background-color: #272c44 !important;
+  -moz-appearance: none !important;
+  border-color: transparent !important;
+}
+
+#search-box,
+#sidebar-search-container,
+#history-panel {
+  color: #feb301ff !important;
+  background-color: #272c44 !important;
+}
+
+/* /1* Bookmarks sidebar: change hover color *1/ */
+/* #bookmarks-view treechildren::-moz-tree-cell(hover) { */
+/*   background-color: #ff4040 !important; */
+/* } */

@@ -85,6 +85,20 @@ Quote: https://userChrome.org | https://github.com/topics/userchrome
   background-color: #272c44 !important;
 }
 
+panel * {
+  background-color: #272c44 !important;
+  color: #df5a4e !important;
+}
+
+.panel-header *,
+toolbarseparator {
+  color: #3073d9 !important;
+}
+
+#unified-extensions-manage-extensions * {
+  color: #feb301ff !important;
+}
+
 /* /1* Bookmarks sidebar: change hover color *1/ */
 /* #bookmarks-view treechildren::-moz-tree-cell(hover) { */
 /*   background-color: #ff4040 !important; */

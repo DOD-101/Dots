@@ -71,6 +71,7 @@ alias stowh="stow -t ~ -S ."
 alias stowu="stow -t ~ -D ."
 
 alias n="nvim"
+alias g="git"
 
 # yazi
 

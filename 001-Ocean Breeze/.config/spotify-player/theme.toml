@@ -16,3 +16,4 @@ playback_track = { fg = "White", modifiers = ["Bold"] }
 playback_album = { fg = "White", modifiers = ["Bold"] }
 playback_artists = { fg = "White", modifiers = ["Bold"] }
 playback_progress_bar = { fg = "Green" }
+playback_progress_bar_unfilled = { fg = "Red" }

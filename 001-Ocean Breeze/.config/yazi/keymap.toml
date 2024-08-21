@@ -7,5 +7,10 @@ on = [ "<C-q>"]
 run = "quit --no-cwd-file"
 
 [[manager.prepend_keymap]]
-on = [ "I" ]
-run = "shell --confirm --orphan swayimg $1"
+on = [ "i" ]
+run = 'shell --confirm --orphan "swayimg \"$@\""'
+
+[[manager.prepend_keymap]]
+on   = "l"
+run  = "plugin --sync smart-enter"
+desc = "Enter the child directory, or open the file"

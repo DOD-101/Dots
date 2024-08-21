@@ -14,3 +14,11 @@ run = 'shell --confirm --orphan "swayimg \"$@\""'
 on   = "l"
 run  = "plugin --sync smart-enter"
 desc = "Enter the child directory, or open the file"
+
+[[manager.prepend_keymap]]
+on = "R"
+run = 'shell --confirm --block "gtrash restore"'
+
+[[manager.prepend_keymap]]
+on = "n"
+run = 'shell --confirm --block "$EDITOR"'

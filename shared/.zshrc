@@ -20,7 +20,7 @@ ZSH_THEME="agnoster-custom" # (this is one of the fancy ones)
 ENABLE_CORRECTION="true"
 CASE_SENSITIVE="true"
 
-plugins=(git)
+plugins=(git rust)
 
 source ~/.oh-my-zsh/oh-my-zsh.sh
 

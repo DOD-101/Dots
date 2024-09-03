@@ -25,15 +25,24 @@
 )
 
 (defwidget disk []
-  (icon-module :class "disk_icon" :icon "󰋊"
-    (label :text "${round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}%" :class "disk_value")
+  (icon-module :class "disk_icon" :icon "󰋊" :visible {show_disk}
+    (label :text "${round((1 - ((EWW_DISK?.["/"]?.free ?: 1) / (EWW_DISK?.["/"]?.total ?: 1))) * 100,0)}%" :class "disk_value")
   )
 )
 
 (defwidget ddisk []
-  (icon-module :class "ddisk_icon" :icon "󰋊"
-    (label :text "${round((1 - (EWW_DISK["/data"].free / EWW_DISK["/data"].total)) * 100, 0)}%" :class "ddisk_value")
+  (icon-module :class "ddisk_icon" :icon "󰋊" :visible {show_ddisk}
+    (label :text "${round((1 - ((EWW_DISK?.["/data"]?.free ?: 1) / (EWW_DISK?.["/data"]?.total ?: 1))) * 100,0)}%" :class "ddisk_value")
   )
+)
+
+(defwidget keyboard []
+      (button
+        :onclick "killall -s 34 wvkbd-mobintl"
+        :class "keyboard-btn"
+        :visible {touchscreen}
+        ""
+      )
 )
 
 (defwidget time []
@@ -121,6 +130,8 @@
         )
       )
       
+      (keyboard)
+
       (label
         :class {
         internet == "none" ?
@@ -155,17 +166,21 @@
         "caps caps_on on" :
         "caps caps_off off"
         }
-      :text "󰘲")
+      :text "󰘲"
+      :visible {show_caps_lock})
+      
       (label
         :class {
         num_lock == 1 ?
         "num num_on on" :
         "num num_off off"
         }
-      :text "󰎡")
+      :text "󰎡"
+      :visible {show_num_lock})
+      )
     )
   )
-)
+
 
 (defwidget workspaces [num1 num2 num3]
   (box
@@ -216,7 +231,7 @@
       (revealer
         :transition "slideright"
         :reveal {show_hwinfo}
-        (label :text "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0} °C")
+        (label :text "${EWW_TEMPS.ACPITZ_TEMP1} °C")
       )
       (ram)
       (revealer

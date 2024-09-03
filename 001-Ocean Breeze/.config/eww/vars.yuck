@@ -1,4 +1,14 @@
-; contains all the variales of the config
+; contains all the variables of the config
+
+; Config option toggles
+(defvar touchscreen false)
+(defvar show_caps_lock true)
+(defvar show_num_lock true)
+(defvar show_disk true)
+(defvar show_ddisk true)
+(defvar wifi_device "wlp61s0")
+(defvar ethernet_device "enp59s0") 
+
 
 ;  vars for controlling revealers
 (defvar show_status false)

@@ -9,16 +9,16 @@
 ) ; gets the state of num lock
 
 (defpoll internet :interval "10s"
-  "bash scripts/wifiethernet.sh"
+  "bash scripts/wifiethernet.sh $(eww get wifi_device) $(eww get ethernet_device)"
 ) ; checks if you are connected via wifi, ethernet or not at all
 
 (defpoll internet_name :interval "10s"
-  "iwconfig wlp61s0 | awk -F'[:\"]' '/ESSID/{print $3}'"
+  "iwconfig $(eww get wifi_device) | awk -F'[:\"]' '/ESSID/{print $3}'"
   ) ; gets the ESSID (name) of your current internet connection
 
 (defpoll internet_strengh :interval "10s"
   :initial 70
-  "iwconfig wlp61s0 | awk -F'[=/]' '/Link Quality/{print $2}'"
+  "iwconfig $(eww get wifi_device) | awk -F'[=/]' '/Link Quality/{print $2}'"
 ) ; gets the strengh of your internet connection
 
 (defpoll bluetooth :interval "10s"

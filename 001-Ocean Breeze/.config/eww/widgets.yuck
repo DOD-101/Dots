@@ -94,20 +94,22 @@
 
 (defwidget battery []
   (icon-module
-    :class { EWW_BATTERY["BAT0"].capacity <= 25 ? "battery bat_low" : "battery" }
+    :visible { show_battery }
+    :class { strlength(EWW_BATTERY) == 0 ? "no_battery" : EWW_BATTERY?.["BAT0"]?.capacity ?: 0 <= 25 ? "battery bat_low" : "battery" }
     :icon {
-    EWW_BATTERY["BAT0"].status == "Charging" ?
+    strlength(EWW_BATTERY) == 0 ? "n/a" : 
+    EWW_BATTERY?.["BAT0"]?.status ?: "" == "Charging" ?
     "" :
-    EWW_BATTERY["BAT0"].capacity == 100 ?
+    EWW_BATTERY?.["BAT0"]?.capacity ?: 0 == 100 ?
     "" :
-    EWW_BATTERY["BAT0"].capacity >= 75 ?
+    EWW_BATTERY?.["BAT0"]?.capacity ?: 0 >= 75 ?
     "" :
-    EWW_BATTERY["BAT0"].capacity >= 50 ?
+    EWW_BATTERY?.["BAT0"]?.capacity  ?: 0 >= 50 ?
     "" :
-    EWW_BATTERY["BAT0"].capacity >= 25 ?
+    EWW_BATTERY?.["BAT0"]?.capacity  ?: 0 >= 25 ?
     "" :
     ""}
-    (label :text "${EWW_BATTERY["BAT0"].capacity}%")
+    (label :text "${strlength(EWW_BATTERY) == 0 ? "n/a" : EWW_BATTERY?.["BAT0"]?.capacity}%")
   )
 )
 
